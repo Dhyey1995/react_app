@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route , Switch } from 'react-router-dom';
+import MoviList from './MoviList';
+import PhotoDetails from './PhotoDetails';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+    render() {
+        return (
+            <section>
+                <Switch>
+                    <Route exact path="/" component={MoviList}></Route>
+                    <Route exact path="/details/:photo_id" component={PhotoDetails}></Route>
+                </Switch>
+            </section>
+        );
+    }
 }
-
-export default App;
+export default App
